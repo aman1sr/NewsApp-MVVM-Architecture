@@ -7,8 +7,8 @@ import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-//@HiltViewModel
-class PagingTopHeadlineViewModel (           // todo: inject Repo  and NetworkHelper instance  ,,, so to make it runnable
+@HiltViewModel
+class PagingTopHeadlineViewModel @Inject constructor(           // todo: inject Repo  and NetworkHelper instance  ,,, so to make it runnable
     topHeadlineRepository: PagingTopHeadlineRepository, networkHelper: NetworkHelper
 ): BaseViewModel<List<*>>(networkHelper) {
 //    val pagingDataFlow: Flow<PagingData<APIArticle>>
