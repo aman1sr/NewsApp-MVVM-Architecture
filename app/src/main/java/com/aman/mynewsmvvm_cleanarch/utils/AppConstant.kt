@@ -1,7 +1,7 @@
 package com.aman.mynewsmvvm_cleanarch.utils
 
-import com.aman.mynewsmvvm_cleanarch.data.Country
-import com.aman.mynewsmvvm_cleanarch.data.LanguageEntity
+import com.aman.mynewsmvvm_cleanarch.data.local.entity.Country
+import com.aman.mynewsmvvm_cleanarch.data.local.entity.LanguageEntity
 
 
 object AppConstant {

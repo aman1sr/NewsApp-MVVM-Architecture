@@ -65,6 +65,7 @@ dependencies {
 
 // hilt
     implementation("com.google.dagger:hilt-android:2.44")
+    implementation("androidx.activity:activity:1.9.0")
     kapt("com.google.dagger:hilt-compiler:2.44")
 
     implementation("androidx.browser:browser:1.5.0")

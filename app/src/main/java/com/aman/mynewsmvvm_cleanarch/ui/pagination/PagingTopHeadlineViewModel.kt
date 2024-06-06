@@ -1,4 +1,4 @@
-package com.aman.mynewsmvvm_cleanarch.ui
+package com.aman.mynewsmvvm_cleanarch.ui.pagination
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PagingTopHeadlineViewModel @Inject constructor(           // todo: inject Repo  and NetworkHelper instance  ,,, so to make it runnable
+class PagingTopHeadlineViewModel @Inject constructor(
   private val topHeadlineRepository: PagingTopHeadlineRepository, networkHelper: NetworkHelper
 ): BaseViewModel<List<*>>(networkHelper) {
 //    val pagingDataFlow: Flow<PagingData<APIArticle>>

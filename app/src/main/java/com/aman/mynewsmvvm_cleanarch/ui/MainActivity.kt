@@ -1,9 +1,11 @@
-package com.aman.mynewsmvvm_cleanarch
+package com.aman.mynewsmvvm_cleanarch.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.aman.mynewsmvvm_cleanarch.R
 import com.aman.mynewsmvvm_cleanarch.databinding.ActivityMainBinding
-import com.aman.mynewsmvvm_cleanarch.ui.PaginationTopHeadlineActivity
+import com.aman.mynewsmvvm_cleanarch.ui.pagination.PaginationTopHeadlineActivity
+import com.aman.mynewsmvvm_cleanarch.ui.topheadline.TopHeadlineActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,10 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//
-//        binding.topHeadlineButton.setOnClickListener {
+
+        binding.topHeadlineButton.setOnClickListener {
 //            startActivity(TopHeadlineActivity.getStartIntent(this@MainActivity))
-//        }
+        }
 
         binding.topHeadlinePaginationButton.setOnClickListener {
             startActivity(PaginationTopHeadlineActivity.getStartIntent(this@MainActivity))

@@ -1,6 +1,6 @@
 package com.aman.mynewsmvvm_cleanarch.di.module
 
-import com.aman.mynewsmvvm_cleanarch.ui.PagingTopHeadlineAdapter
+import com.aman.mynewsmvvm_cleanarch.ui.pagination.PagingTopHeadlineAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

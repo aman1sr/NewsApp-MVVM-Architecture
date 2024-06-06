@@ -1,6 +1,6 @@
 package com.aman.mynewsmvvm_cleanarch.data.model.topheadlines
 
-import com.aman.mynewsmvvm_cleanarch.data.Article
+import com.aman.mynewsmvvm_cleanarch.data.local.entity.Article
 import com.google.gson.annotations.SerializedName
 
 data class APIArticle(

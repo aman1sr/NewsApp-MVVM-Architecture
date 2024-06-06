@@ -1,10 +1,13 @@
 package com.aman.mynewsmvvm_cleanarch.di.module
 
 import android.content.Context
+import androidx.room.Room
 import com.aman.mynewsmvvm_cleanarch.BuildConfig
 import com.aman.mynewsmvvm_cleanarch.data.api.AuthTokenInterceptor
 import com.aman.mynewsmvvm_cleanarch.data.api.NetworkService
+import com.aman.mynewsmvvm_cleanarch.data.local.NewsAppDatabase
 import com.aman.mynewsmvvm_cleanarch.di.BASEURL
+import com.aman.mynewsmvvm_cleanarch.di.DatabaseName
 import com.aman.mynewsmvvm_cleanarch.di.NetworkAPIKey
 import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelper
 import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelperImpl
@@ -40,7 +43,7 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideHttpLogginInterceptor(): HttpLoggingInterceptor{ // todo: usecase of Http Logging
+    fun provideHttpLogginInterceptor(): HttpLoggingInterceptor{
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         if(BuildConfig.DEBUG){
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -61,12 +64,13 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(
+    fun provideOkHttpClient(                        // // todo: usecase of okhttp3:logging-interceptor
     httpLoggingInterceptor: HttpLoggingInterceptor,
     authTokenInterceptor: AuthTokenInterceptor
     ) : OkHttpClient = OkHttpClient()
         .newBuilder()
         .addInterceptor(authTokenInterceptor)
+        .addInterceptor(httpLoggingInterceptor)
         .build()
 
 
@@ -83,4 +87,26 @@ object ApplicationModule {
         .addConverterFactory(gsonConverterFactory)
         .build()
         .create(NetworkService::class.java)
+
+    @Provides
+    @Singleton
+    @DatabaseName
+    fun provideDatabaseName(): String = "news_app_database"
+
+    @Provides
+    @Singleton
+    fun provideNewsAppDatabase(
+        @ApplicationContext context: Context,
+        @DatabaseName databaseName: String
+    ): NewsAppDatabase = Room.databaseBuilder(
+        context, NewsAppDatabase::class.java, databaseName
+    ).build()
+
+    @Provides
+    @Singleton
+    fun provideTopHeadLineDao(newsAppDatabase: NewsAppDatabase) =
+        newsAppDatabase.topHeadLineDao()
+
+
+
 }

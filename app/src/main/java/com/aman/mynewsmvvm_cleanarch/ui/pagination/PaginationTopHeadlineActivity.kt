@@ -1,4 +1,4 @@
-package com.aman.mynewsmvvm_cleanarch.ui
+package com.aman.mynewsmvvm_cleanarch.ui.pagination
 
 import android.content.Context
 import android.content.Intent
@@ -18,7 +18,7 @@ class PaginationTopHeadlineActivity : BaseActivity<PagingTopHeadlineViewModel,Ac
 
     companion object{
         fun getStartIntent(context: Context): Intent{
-            return Intent(context,PaginationTopHeadlineActivity::class.java)
+            return Intent(context, PaginationTopHeadlineActivity::class.java)
         }
         val TAG = "PaginationTopHeadlineActivity_d"
     }

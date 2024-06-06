@@ -1,9 +1,10 @@
-package com.aman.mynewsmvvm_cleanarch.data
+package com.aman.mynewsmvvm_cleanarch.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.aman.mynewsmvvm_cleanarch.data.Source
 
 @Entity(tableName = "TopHeadlinesArticle")
 data class Article(

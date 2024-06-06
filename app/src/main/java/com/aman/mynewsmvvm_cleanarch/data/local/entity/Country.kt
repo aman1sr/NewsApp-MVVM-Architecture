@@ -1,4 +1,4 @@
-package com.aman.mynewsmvvm_cleanarch.data
+package com.aman.mynewsmvvm_cleanarch.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,6 +1,6 @@
 package com.aman.mynewsmvvm_cleanarch.data.newssources
 
-import NewsSource
+import com.aman.mynewsmvvm_cleanarch.data.local.entity.NewsSource
 import com.google.gson.annotations.SerializedName
 
 data class APINewsSource(
