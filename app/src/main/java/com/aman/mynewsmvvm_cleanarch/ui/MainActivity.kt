@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.topHeadlineButton.setOnClickListener {
-//            startActivity(TopHeadlineActivity.getStartIntent(this@MainActivity))
+            startActivity(TopHeadlineActivity.getStartIntent(this@MainActivity))
         }
 
         binding.topHeadlinePaginationButton.setOnClickListener {

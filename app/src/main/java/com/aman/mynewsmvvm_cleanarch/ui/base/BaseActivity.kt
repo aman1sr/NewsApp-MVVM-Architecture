@@ -8,7 +8,7 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseActivity<T : BaseViewModel<*>, ViewBindingType : ViewBinding> :
     AppCompatActivity() {
 
-    lateinit var viewModel: T
+    lateinit var viewModel: T           // T is type of ViewModel passed from Activity
     private var _binding: ViewBindingType? = null
     protected val binding get() = requireNotNull(_binding)
 

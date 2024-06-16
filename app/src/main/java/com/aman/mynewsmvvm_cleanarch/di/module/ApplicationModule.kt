@@ -9,6 +9,8 @@ import com.aman.mynewsmvvm_cleanarch.data.local.NewsAppDatabase
 import com.aman.mynewsmvvm_cleanarch.di.BASEURL
 import com.aman.mynewsmvvm_cleanarch.di.DatabaseName
 import com.aman.mynewsmvvm_cleanarch.di.NetworkAPIKey
+import com.aman.mynewsmvvm_cleanarch.utils.DefaultDisptacherProvider
+import com.aman.mynewsmvvm_cleanarch.utils.DispatcherProvider
 import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelper
 import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelperImpl
 import dagger.Module
@@ -25,6 +27,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApplicationModule {
+
+    @Provides
+    @Singleton
+    fun provideDispatcher(): DispatcherProvider = DefaultDisptacherProvider()
 
     @Provides
     @Singleton
