@@ -10,7 +10,10 @@ data class APIArticle(
     @SerializedName("urlToImage") val imageUrl: String? = "",
     @SerializedName("source") val source: APISource
 )
-
+/*
+*  such an extension function is to transform data models between different layers of an application. In this case,
+*   it helps in converting network data models into entities that can be stored in a database or used within the application logic.
+* */
 fun APIArticle.asEntity(country: String) = Article(
     title = title,
     description = description ?: "",

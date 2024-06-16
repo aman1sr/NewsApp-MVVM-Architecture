@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.aman.mynewsmvvm_cleanarch.R
 import com.aman.mynewsmvvm_cleanarch.databinding.ActivityMainBinding
 import com.aman.mynewsmvvm_cleanarch.ui.pagination.PaginationTopHeadlineActivity
+import com.aman.mynewsmvvm_cleanarch.ui.search.SearchActivity
 import com.aman.mynewsmvvm_cleanarch.ui.topheadline.TopHeadlineActivity
 
 
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(LanguageActivity.getStartIntent(this@MainActivity))
 //        }
 //
-//        binding.searchButton.setOnClickListener {
-//            startActivity(SearchActivity.getStartIntent(this@MainActivity))
-//        }
+        binding.searchButton.setOnClickListener {
+            startActivity(SearchActivity.getStartIntent(this@MainActivity))
+        }
     }
 }
