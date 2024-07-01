@@ -27,7 +27,13 @@ class SearchViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ): BaseViewModel<List<*>>(networkHelper) {
 
-    // using for Eff Search Bar query 1
+    /*
+    * debounce: used to wait for a specified amount of time  before emitting the latest value.
+    * filter: filters the flow based on a condition & prevents further processing of this flow by returning false
+    *distinctUntilChanged: operator ensures that only distinct consecutive values are emitted. It prevents the flow from emitting the same query multiple times if the user repeatedly enters the same text.
+    * flatMapLatest: (v imp)   transforms the latest value emitted by the flow into another flow. If a new query comes in before the previous flow has finished processing, it cancels the previous flow and starts a new one.
+    * catch : used to handle any exceptions that occur during the flow's emission
+    * */
     fun setUpSearchStateFlow(searchFlow: StateFlow<String>) {
         viewModelScope.launch(dispatcherProvider.main) {
             searchFlow.debounce(2000)
@@ -43,11 +49,11 @@ class SearchViewModel @Inject constructor(
                     searchRepository.getNewsByQueries(sources = query).catch { e ->
                         _data.value = Resource.error(e.toString())
                     }
-                }.flowOn(dispatcherProvider.io).collect{
-                        _data.value = Resource.success(it)
-                    }
+                }.flowOn(dispatcherProvider.io).collect {
+                    _data.value = Resource.success(it)
                 }
         }
+    }
 
     // using for TryAgain purpose
     fun fetchNewsByQueries(queries: String){

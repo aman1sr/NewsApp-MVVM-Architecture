@@ -1,31 +1,31 @@
 package com.aman.mynewsmvvm_cleanarch.ui.pagination
 
-import android.util.Log
+
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.aman.mynewsmvvm_cleanarch.data.model.topheadlines.APIArticle
 import com.aman.mynewsmvvm_cleanarch.data.repo.PagingTopHeadlineRepository
 import com.aman.mynewsmvvm_cleanarch.ui.base.BaseViewModel
 import com.aman.mynewsmvvm_cleanarch.utils.AppConstant
 import com.aman.mynewsmvvm_cleanarch.utils.network.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
 class PagingTopHeadlineViewModel @Inject constructor(
-  private val topHeadlineRepository: PagingTopHeadlineRepository, networkHelper: NetworkHelper
+  topHeadlineRepository: PagingTopHeadlineRepository,
+  networkHelper: NetworkHelper
 ): BaseViewModel<List<*>>(networkHelper) {
-//    val pagingDataFlow: Flow<PagingData<APIArticle>>
+
+   val pagingDataFlow: Flow<PagingData<APIArticle>>
 
     init {
-        Log.d(PaginationTopHeadlineActivity.TAG, "VM init ")
-        fetchTestHeadLine()
+    pagingDataFlow = topHeadlineRepository.getTopHeadline(country = AppConstant.COUNTRY)
+        .cachedIn(viewModelScope)
     }
-    fun fetchTestHeadLine(){
-        viewModelScope.launch {
-             topHeadlineRepository.getTestHeadline(AppConstant.COUNTRY)
-                 .collect{
-                 Log.d(PaginationTopHeadlineActivity.TAG, "fetchTestHeadLine: $it")
-             }
-        }
-    }
+
+
+
 }

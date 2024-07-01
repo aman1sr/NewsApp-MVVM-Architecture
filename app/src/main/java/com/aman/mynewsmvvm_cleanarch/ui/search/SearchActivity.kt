@@ -43,7 +43,7 @@ class SearchActivity : BaseActivity<SearchViewModel,ActivitySearchBinding>() {
     override fun setupObserver() {
         super.setupObserver()
         viewModel.setUpSearchStateFlow(
-            binding.searchView.getQueryTextChangeStateFlow()
+            binding.searchView.getQueryTextChangeStateFlow()        //use of Extension f() to return Flow
         )
 
         lifecycleScope.launch {
