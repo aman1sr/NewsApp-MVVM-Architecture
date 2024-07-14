@@ -3,12 +3,12 @@ Introducing our cutting-edge News MVVM app, meticulously crafted with the latest
 
 ### Major Highlights:
 - **MVVM Architecture** : Built using the Model-View-ViewModel architecture, ensuring a clean separation of concerns and making the app highly maintainable and testable.
-- Offline-First: Prioritizes offline access with a single source of truth, ensuring you can read the news even without an internet connection.
-- Room Database: Utilizes Room for efficient local data storage and retrieval.
-- Dependency Injection with Hilt: Implements Hilt for managing dependencies, reducing boilerplate code and improving scalability.
-- Pagination Library: Seamlessly handles data pagination, providing a smooth scrolling experience through endless news articles.
-- Coroutines and Flow API: Leverages Kotlin Coroutines and Flow API for efficient and smooth data processing pipelines.
-- Comprehensive Unit Testing: Ensures robustness with extensive unit tests covering all critical components.
+- **Offline-First**: Prioritizes offline access with a single source of truth, ensuring you can read the news even without an internet connection.
+- **Room Database**: Utilizes Room for efficient local data storage and retrieval.
+- **Dependency Injection with Hilt**: Implements Hilt for managing dependencies, reducing boilerplate code and improving scalability.
+- **Pagination Library**: Seamlessly handles data pagination, providing a smooth scrolling experience through endless news articles.
+- **Coroutines and Flow API**: Leverages Kotlin Coroutines and Flow API for efficient and smooth data processing pipelines.
+- **Comprehensive Unit Testing**: Ensures robustness with extensive unit tests covering all critical components.
 
 <p align="center">
 <img alt="mvvm-architecture"  src="https://files.codingninjas.in/article_images/android-mvvm-model-view-viewmodel-architecture-0-1647677770.webp">
@@ -139,8 +139,6 @@ kaptAndroidTest "com.google.dagger:dagger-compiler:2.42"
 </p>
 
 <p align="center">
-<img alt="search1" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.jpeg" width="360"  height="640">
-&nbsp;&nbsp;&nbsp;&nbsp;
 <img alt="search1.1" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.1.jpeg" width="360"  height="640"  marginLeft="20">
 <img alt="search2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.jpeg" width="360"  height="640"  marginLeft="20">
 <img alt="search2.2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.jpeg" width="360"  height="640"  marginLeft="20">
